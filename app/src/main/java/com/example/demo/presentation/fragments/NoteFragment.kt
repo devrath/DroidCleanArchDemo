@@ -1,10 +1,13 @@
 package com.example.demo.presentation.fragments
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,6 +17,7 @@ import com.example.demo.R
 import com.example.demo.databinding.FragmentListBinding
 import com.example.demo.databinding.FragmentNoteBinding
 import com.example.demo.framework.viewModels.NoteViewModel
+import com.example.demo.presentation.utils.AppUtilities.hideKeyboard
 import kotlinx.android.synthetic.main.fragment_note.*
 
 
@@ -60,7 +64,8 @@ class NoteFragment : Fragment() {
 
     private fun setObservers() {
         viewModel.saved.observe(viewLifecycleOwner, Observer {
-            Toast.makeText(activity,"Note Added",Toast.LENGTH_LONG).show()
+            hideKeyboard()
+            Navigation.findNavController(binding.rootId).popBackStack()
         })
     }
 
@@ -68,4 +73,6 @@ class NoteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
