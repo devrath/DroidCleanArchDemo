@@ -11,7 +11,7 @@
 </p>
 
 <p align="center"><a><img align="left" src="https://github.com/devrath/devrath/blob/master/images/description.png" width="60" height="60" alt="Description" title="Description"></a></p> 
-In this project we can write a note and store it locally and display the notes
+Here user can enter the notes and save them locally, then view the list of notes. This project is developed using clean architecture in kotlin
 
 ---
 
